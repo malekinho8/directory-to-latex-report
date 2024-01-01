@@ -1,0 +1,95 @@
+\documentclass[t, mathserif, pdftex]{beamer}  
+% \DeclareUnicodeCharacter{0301}{\'{i}}
+\setbeamertemplate{caption}[numbered]
+\setbeamerfont{frametitle}{size=\normalfont,shape=\itshape}
+
+% \setbeamerfont{caption}{series=\normalfont,size=scriptsize, color=black}
+\usepackage[font=tiny,labelfont=bf,
+  justification=justified,
+  format=plain]{caption} % 'format=plain' avoids hanging indentation'
+\usetheme[]{YOUR_THEME_HERE}                
+%Enable cancelto in math
+\usepackage{bm}
+% \usepackage{enumitem}
+% \usepackage{enumitem}
+% \setcounter{enumi}{YOUR_START_NUMBER_MINUS_ONE}
+
+% \include{shadowImage}
+% \include{shadowVideo}
+\include{ez_utils}
+
+% initialize counters
+\newcounter{s1}
+\newcounter{s2}
+\newcounter{s3}
+\newcounter{svic}
+\newcounter{ssvic}
+
+
+\makeatletter
+\renewcommand{\theenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\p@enumii}{\theenumi.}
+\makeatother
+
+\makeatletter
+\renewcommand{\theenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\p@enumiii}{\theenumi.\theenumii.}
+\makeatother
+
+
+\newcounter{conti}
+
+\usepackage{array} 
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{adjustbox}
+
+
+
+\usepackage{multimedia}
+\usepackage{fancyvrb} % for "\Verb" macro
+\usepackage{dirtree}
+\usepackage{multimedia}
+\usepackage{xmpmulti}
+\usepackage{cancel}
+\renewcommand{\CancelColor}{\color{utorange}}
+\usepackage{svg}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{hyperref}
+\addtobeamertemplate{footnote}{\hsize\beamerfoottmplength}{}
+% \vfuzz=50pt
+%Add bibliography file location for citiation
+% \usepackage[style=authoryear]{biblatex}
+\usepackage[style=authoryear-comp,backend=biber]{biblatex}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+\setbeamertemplate{citation}{\insertauthor, \insertyear}
+
+
+\usepackage{etoolbox}
+
+\makeatletter
+\newcommand{\tableofcontentssubsubsection}[1][]{%
+    \begingroup
+        \def\beamer@tocifnothide##1{%
+            \ifnum\c@tocdepth>\beamer@toclevel\space
+                \beamer@tocifnogobble{##1}%
+            \else
+                \beamer@tocifgobble{##1}%
+            \fi%
+        }%
+        \let\beamer@tocifnogobble\beamer@tocifnothide
+        \def\beamer@toclevel{3}%
+        \tableofcontents[{#1}]
+    \endgroup
+}
+\makeatother
+
+
+\addbibresource{example.bib}
+\renewcommand*{\bibfont}{\scriptsize}

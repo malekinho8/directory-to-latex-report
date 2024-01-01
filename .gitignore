@@ -1,0 +1,7 @@
+sandbox/
+figs/
+.vscode/
+dir2pdf/build/
+
+latex-code.log
+.DS_Store
